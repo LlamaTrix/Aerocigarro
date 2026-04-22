@@ -16,19 +16,19 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-app.get('/api/music/play/:nombremusica', (req, res) => {
-  const { nombremusica } = req.params;
-  const filePath = path.join(MUSIC_DIR, nombremusica);
+app.get('/api/music/play/:nombre', (req, res) => {
+  const nombre = req.params.nombre.charAt(0).toUpperCase() + req.params.nombre.slice(1);
+  const filePath = path.join(MUSIC_DIR, nombre + '.mp3');
 
   if (!filePath.startsWith(MUSIC_DIR)) {
     return res.status(400).json({ error: 'Nombre de archivo inválido' });
   }
 
   if (!fs.existsSync(filePath)) {
-    return res.status(404).json({ error: `Archivo '${nombremusica}' no encontrado` });
+    return res.status(404).json({ error: `Archivo '${nombre}' no encontrado` });
   }
 
-  res.download(filePath, nombremusica);
+  res.download(filePath, nombre);
 });
 
 app.listen(PORT, '0.0.0.0', () => {
