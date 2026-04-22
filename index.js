@@ -3,8 +3,8 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-const PORT = 3001;
-const MUSIC_DIR = path.join(__dirname);
+const PORT = 3002;
+const MUSIC_DIR = path.join(__dirname + '/music');
 
 app.get('/api/health', (req, res) => {
   res.json({
