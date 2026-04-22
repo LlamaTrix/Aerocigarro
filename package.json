@@ -1,0 +1,19 @@
+{
+  "name": "aerocigarro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:stop": "pm2 stop aerocigarro",
+    "pm2:restart": "pm2 restart aerocigarro",
+    "pm2:logs": "pm2 logs aerocigarro"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
